@@ -8,4 +8,11 @@ print("6")
 print("7")
 print("8")
 print("9")
-print("10")
+
+a=1
+b=2
+c=3
+
+
+
+print(a)
