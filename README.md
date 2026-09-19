@@ -1377,3 +1377,51 @@ feature-login
 +
 本地与远程同步
 ```
+
+#28.reset
+
+reset本质上是将分支标签回退到之前的commit中
+
+```txt
+git reset HEAD~1
+执行前：
+
+A ← B ← C ← D
+            ↑
+           main
+            ↑
+           HEAD
+
+
+执行后：
+
+A ← B ← C
+        ↑
+       main
+        ↑
+       HEAD
+
+         D
+
+```
+
+HEAD~1 就是HEAD指向的提交的上一个提交
+
+**注意：不是 HEAD 自己随便跑到 C，而是 main 移到了 C，因为 HEAD 正指着 main。除非checkout,否则HEAD一直指向分支标签**
+<br>
+
+>git reset --soft HEAD~1
+
+修改过的的代码保留在暂存区，撤销commit
+
+<br/>
+
+> git reset --mixed HEAD~1 
+
+修改过的代码保留在工作区，但是撤回了暂存区的代码和commit
+
+<br>
+
+>git reset --hard HEAD~1
+
+修改过的东西完全删除
